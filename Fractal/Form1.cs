@@ -13,20 +13,38 @@ namespace Fractal {
             pictureBox1.BackColor = Color.White;
         }
 
+        /// <summary>
+        /// Sets up the initial triangle and calls Sierpinski with given deep.
+        /// </summary>
+        /// <param name="width">Width of the triangle.</param>
+        /// <param name="x">Offset from sides.</param>
+        /// <param name="y">Offset from bottom.</param>
+        /// <param name="g">Graphics to use to draw.</param>
+        /// <param name="deep">Number of iterations. 0 is filled triangle.</param>
         private void SetupSierpinski(float width, int x, int y, Graphics g, int deep) {
             // Height of equilateral triangle
             float height = HW_RATIO * width;
-
             // Bottom-left
             int xA = x, yA = y;
             // Bottom-right
             int xB = (int)(x + width), yB = y;
-            // Equilateral triangle (top center)
+            // TRop-center (of equilateral triangle)
             int xC = (int)(x + width / 2.0f), yC = (int)(y + height);
 
             Sierpinski(xA, yA, xB, yB, xC, yC, g, deep);
         }
 
+        /// <summary>
+        /// Recursively fills the triangles.
+        /// </summary>
+        /// <param name="xA">Value of x at bottom left.</param>
+        /// <param name="yA">Value of y at bottom left.</param>
+        /// <param name="xB">Value of x at bottom right.</param>
+        /// <param name="yB">Value of y at bottom right.</param>
+        /// <param name="xC">Value of x at top of triangle.</param>
+        /// <param name="yC">Value of x at top of triangle.</param>
+        /// <param name="g">Graphics to use to draw.</param>
+        /// <param name="deep">Number of iterations</param>
         private void Sierpinski(float xA, float yA, float xB, float yB,
             float xC, float yC, Graphics g, int deep) {
             if (deep > 0) {
