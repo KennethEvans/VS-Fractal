@@ -23,41 +23,170 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanelTop = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanelSierpinski = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonSerpinski = new System.Windows.Forms.Button();
+            this.flowLayoutPanelKoch = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonKoch = new System.Windows.Forms.Button();
+            this.tableLayoutPanelKochItrs = new System.Windows.Forms.TableLayoutPanel();
+            this.labelKochItrs = new System.Windows.Forms.Label();
+            this.textBoxKochItrs = new System.Windows.Forms.TextBox();
+            this.checkBoxKochAllIters = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanelButtons = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonProcess1 = new System.Windows.Forms.Button();
-            this.buttonProcess2 = new System.Windows.Forms.Button();
             this.buttonQuit = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.flowLayoutPanelSierpinski.SuspendLayout();
+            this.flowLayoutPanelKoch.SuspendLayout();
+            this.tableLayoutPanelKochItrs.SuspendLayout();
             this.flowLayoutPanelButtons.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanelTop
             // 
-            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanelButtons, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1112, 892);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanelTop.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanelTop.ColumnCount = 1;
+            this.tableLayoutPanelTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelTop.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanelTop.Controls.Add(this.flowLayoutPanelSierpinski, 0, 1);
+            this.tableLayoutPanelTop.Controls.Add(this.flowLayoutPanelKoch, 0, 2);
+            this.tableLayoutPanelTop.Controls.Add(this.flowLayoutPanelButtons, 0, 3);
+            this.tableLayoutPanelTop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelTop.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelTop.Name = "tableLayoutPanelTop";
+            this.tableLayoutPanelTop.RowCount = 5;
+            this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelTop.Size = new System.Drawing.Size(1112, 1077);
+            this.tableLayoutPanelTop.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1106, 836);
+            this.pictureBox1.Size = new System.Drawing.Size(1106, 901);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // flowLayoutPanelSierpinski
+            // 
+            this.flowLayoutPanelSierpinski.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.flowLayoutPanelSierpinski.AutoSize = true;
+            this.flowLayoutPanelSierpinski.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanelSierpinski.BackColor = System.Drawing.SystemColors.Control;
+            this.flowLayoutPanelSierpinski.Controls.Add(this.buttonSerpinski);
+            this.flowLayoutPanelSierpinski.Location = new System.Drawing.Point(478, 909);
+            this.flowLayoutPanelSierpinski.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanelSierpinski.Name = "flowLayoutPanelSierpinski";
+            this.flowLayoutPanelSierpinski.Size = new System.Drawing.Size(156, 46);
+            this.flowLayoutPanelSierpinski.TabIndex = 3;
+            this.flowLayoutPanelSierpinski.WrapContents = false;
+            // 
+            // buttonSerpinski
+            // 
+            this.buttonSerpinski.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSerpinski.AutoSize = true;
+            this.buttonSerpinski.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonSerpinski.Location = new System.Drawing.Point(3, 2);
+            this.buttonSerpinski.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSerpinski.Name = "buttonSerpinski";
+            this.buttonSerpinski.Size = new System.Drawing.Size(150, 42);
+            this.buttonSerpinski.TabIndex = 0;
+            this.buttonSerpinski.Text = "Sierpinski";
+            this.buttonSerpinski.UseVisualStyleBackColor = true;
+            this.buttonSerpinski.Click += new System.EventHandler(this.OnSierpinskiClick);
+            // 
+            // flowLayoutPanelKoch
+            // 
+            this.flowLayoutPanelKoch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.flowLayoutPanelKoch.AutoSize = true;
+            this.flowLayoutPanelKoch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanelKoch.BackColor = System.Drawing.SystemColors.Control;
+            this.flowLayoutPanelKoch.Controls.Add(this.buttonKoch);
+            this.flowLayoutPanelKoch.Controls.Add(this.tableLayoutPanelKochItrs);
+            this.flowLayoutPanelKoch.Location = new System.Drawing.Point(294, 959);
+            this.flowLayoutPanelKoch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanelKoch.Name = "flowLayoutPanelKoch";
+            this.flowLayoutPanelKoch.Size = new System.Drawing.Size(524, 46);
+            this.flowLayoutPanelKoch.TabIndex = 4;
+            this.flowLayoutPanelKoch.WrapContents = false;
+            // 
+            // buttonKoch
+            // 
+            this.buttonKoch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonKoch.AutoSize = true;
+            this.buttonKoch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonKoch.Location = new System.Drawing.Point(3, 2);
+            this.buttonKoch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonKoch.Name = "buttonKoch";
+            this.buttonKoch.Size = new System.Drawing.Size(90, 42);
+            this.buttonKoch.TabIndex = 0;
+            this.buttonKoch.Text = "Koch";
+            this.buttonKoch.UseVisualStyleBackColor = true;
+            this.buttonKoch.Click += new System.EventHandler(this.OnKochClick);
+            // 
+            // tableLayoutPanelKochItrs
+            // 
+            this.tableLayoutPanelKochItrs.AutoSize = true;
+            this.tableLayoutPanelKochItrs.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanelKochItrs.BackColor = System.Drawing.SystemColors.Control;
+            this.tableLayoutPanelKochItrs.ColumnCount = 3;
+            this.tableLayoutPanelKochItrs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelKochItrs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelKochItrs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelKochItrs.Controls.Add(this.labelKochItrs, 0, 0);
+            this.tableLayoutPanelKochItrs.Controls.Add(this.textBoxKochItrs, 1, 0);
+            this.tableLayoutPanelKochItrs.Controls.Add(this.checkBoxKochAllIters, 2, 0);
+            this.tableLayoutPanelKochItrs.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanelKochItrs.Location = new System.Drawing.Point(99, 2);
+            this.tableLayoutPanelKochItrs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanelKochItrs.Name = "tableLayoutPanelKochItrs";
+            this.tableLayoutPanelKochItrs.RowCount = 1;
+            this.tableLayoutPanelKochItrs.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelKochItrs.Size = new System.Drawing.Size(422, 42);
+            this.tableLayoutPanelKochItrs.TabIndex = 2;
+            // 
+            // labelKochItrs
+            // 
+            this.labelKochItrs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelKochItrs.AutoSize = true;
+            this.labelKochItrs.BackColor = System.Drawing.SystemColors.Control;
+            this.labelKochItrs.Location = new System.Drawing.Point(20, 0);
+            this.labelKochItrs.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
+            this.labelKochItrs.Name = "labelKochItrs";
+            this.labelKochItrs.Size = new System.Drawing.Size(61, 42);
+            this.labelKochItrs.TabIndex = 0;
+            this.labelKochItrs.Text = "Itrs:";
+            this.labelKochItrs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // textBoxKochItrs
+            // 
+            this.textBoxKochItrs.Dock = System.Windows.Forms.DockStyle.Left;
+            this.textBoxKochItrs.Location = new System.Drawing.Point(87, 2);
+            this.textBoxKochItrs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxKochItrs.Name = "textBoxKochItrs";
+            this.textBoxKochItrs.Size = new System.Drawing.Size(100, 38);
+            this.textBoxKochItrs.TabIndex = 1;
+            this.textBoxKochItrs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // checkBoxKochAllIters
+            // 
+            this.checkBoxKochAllIters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.checkBoxKochAllIters.AutoSize = true;
+            this.checkBoxKochAllIters.Location = new System.Drawing.Point(210, 3);
+            this.checkBoxKochAllIters.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+            this.checkBoxKochAllIters.Name = "checkBoxKochAllIters";
+            this.checkBoxKochAllIters.Size = new System.Drawing.Size(209, 36);
+            this.checkBoxKochAllIters.TabIndex = 5;
+            this.checkBoxKochAllIters.Text = "Show All Itrs";
+            this.checkBoxKochAllIters.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanelButtons
             // 
@@ -65,49 +194,20 @@
             this.flowLayoutPanelButtons.AutoSize = true;
             this.flowLayoutPanelButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanelButtons.BackColor = System.Drawing.SystemColors.Control;
-            this.flowLayoutPanelButtons.Controls.Add(this.buttonProcess1);
-            this.flowLayoutPanelButtons.Controls.Add(this.buttonProcess2);
             this.flowLayoutPanelButtons.Controls.Add(this.buttonQuit);
-            this.flowLayoutPanelButtons.Location = new System.Drawing.Point(388, 844);
+            this.flowLayoutPanelButtons.Location = new System.Drawing.Point(514, 1009);
             this.flowLayoutPanelButtons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanelButtons.Name = "flowLayoutPanelButtons";
-            this.flowLayoutPanelButtons.Size = new System.Drawing.Size(336, 46);
+            this.flowLayoutPanelButtons.Size = new System.Drawing.Size(84, 46);
             this.flowLayoutPanelButtons.TabIndex = 2;
             this.flowLayoutPanelButtons.WrapContents = false;
-            // 
-            // buttonProcess1
-            // 
-            this.buttonProcess1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonProcess1.AutoSize = true;
-            this.buttonProcess1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonProcess1.Location = new System.Drawing.Point(3, 2);
-            this.buttonProcess1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonProcess1.Name = "buttonProcess1";
-            this.buttonProcess1.Size = new System.Drawing.Size(150, 42);
-            this.buttonProcess1.TabIndex = 0;
-            this.buttonProcess1.Text = "Sierpinski";
-            this.buttonProcess1.UseVisualStyleBackColor = true;
-            this.buttonProcess1.Click += new System.EventHandler(this.OnSierpinskiClick);
-            // 
-            // buttonProcess2
-            // 
-            this.buttonProcess2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonProcess2.AutoSize = true;
-            this.buttonProcess2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonProcess2.Location = new System.Drawing.Point(159, 2);
-            this.buttonProcess2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonProcess2.Name = "buttonProcess2";
-            this.buttonProcess2.Size = new System.Drawing.Size(90, 42);
-            this.buttonProcess2.TabIndex = 1;
-            this.buttonProcess2.Text = "Koch";
-            this.buttonProcess2.UseVisualStyleBackColor = true;
             // 
             // buttonQuit
             // 
             this.buttonQuit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonQuit.AutoSize = true;
             this.buttonQuit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonQuit.Location = new System.Drawing.Point(255, 2);
+            this.buttonQuit.Location = new System.Drawing.Point(3, 2);
             this.buttonQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonQuit.Name = "buttonQuit";
             this.buttonQuit.Size = new System.Drawing.Size(78, 42);
@@ -120,13 +220,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 892);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(1112, 1077);
+            this.Controls.Add(this.tableLayoutPanelTop);
             this.Name = "Form1";
             this.Text = "Fractals";
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanelTop.ResumeLayout(false);
+            this.tableLayoutPanelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.flowLayoutPanelSierpinski.ResumeLayout(false);
+            this.flowLayoutPanelSierpinski.PerformLayout();
+            this.flowLayoutPanelKoch.ResumeLayout(false);
+            this.flowLayoutPanelKoch.PerformLayout();
+            this.tableLayoutPanelKochItrs.ResumeLayout(false);
+            this.tableLayoutPanelKochItrs.PerformLayout();
             this.flowLayoutPanelButtons.ResumeLayout(false);
             this.flowLayoutPanelButtons.PerformLayout();
             this.ResumeLayout(false);
@@ -135,12 +241,18 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelTop;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelButtons;
-        private System.Windows.Forms.Button buttonProcess1;
-        private System.Windows.Forms.Button buttonProcess2;
         private System.Windows.Forms.Button buttonQuit;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelSierpinski;
+        private System.Windows.Forms.Button buttonSerpinski;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelKoch;
+        private System.Windows.Forms.Button buttonKoch;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelKochItrs;
+        private System.Windows.Forms.Label labelKochItrs;
+        private System.Windows.Forms.TextBox textBoxKochItrs;
+        private System.Windows.Forms.CheckBox checkBoxKochAllIters;
     }
 }
 

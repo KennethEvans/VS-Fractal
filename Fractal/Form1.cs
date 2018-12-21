@@ -1,16 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace Fractal {
     public partial class Form1 : Form {
-        private static float HW_RATIO = (float)(Math.Sqrt(3.0)) / 2.0f;
+        private static readonly Boolean SHOW_ALL_KOCH_ITRS_DEFAULT = false;
+        private List<Flake> flakes;
+        int nFlakes = Constants.KOCH_ITERS_DEFAULT;
 
         public Form1() {
             InitializeComponent();
 
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.BackColor = Color.White;
+            textBoxKochItrs.Text = nFlakes.ToString();
+            checkBoxKochAllIters.Checked = SHOW_ALL_KOCH_ITRS_DEFAULT;
         }
 
         /// <summary>
@@ -23,7 +28,7 @@ namespace Fractal {
         /// <param name="deep">Number of iterations. 0 is filled triangle.</param>
         private void SetupSierpinski(float width, int x, int y, Graphics g, int deep) {
             // Height of equilateral triangle
-            float height = HW_RATIO * width;
+            float height = Constants.HW_RATIO * width;
             // Bottom-left
             int xA = x, yA = y;
             // Bottom-right
@@ -69,12 +74,12 @@ namespace Fractal {
         }
 
         private void OnSierpinskiClick(object sender, EventArgs e) {
+            pictureBox1.Image = null;
             int deep = 6;
             int margin = 10;
             int width = pictureBox1.Width - 2 * margin;
-            int height = (int)((Math.Round((double)pictureBox1.Width) - 2 * margin) * HW_RATIO);
-            Bitmap bmp = new Bitmap(width + 2 * margin, height + 2 * margin,
-                      System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            int height = (int)((Math.Round((double)pictureBox1.Width) - 2 * margin) * Constants.HW_RATIO);
+            Bitmap bmp = getBitmapForPictureBox(pictureBox1, margin, margin);
             Graphics g = Graphics.FromImage(bmp);
             g.FillRectangle(Brushes.White, new Rectangle(0, 0, bmp.Width, bmp.Height));
 
@@ -82,8 +87,56 @@ namespace Fractal {
             pictureBox1.Image = bmp;
         }
 
+        private void OnKochClick(object sender, EventArgs e) {
+            int newNFlakes;
+            if (Int32.TryParse(textBoxKochItrs.Text, out newNFlakes)) {
+                nFlakes = newNFlakes;
+            }
+            Boolean showAllIters = checkBoxKochAllIters.Checked;
+            flakes = new List<Flake>();
+            pictureBox1.Image = null;
+            int margin = 10;
+            int width = pictureBox1.Width - 2 * margin;
+            int height = (int)((Math.Round((double)pictureBox1.Width) - margin - margin) * Constants.HW_RATIO);
+            Bitmap bmp = getBitmapForPictureBox(pictureBox1, margin, margin);
+            Graphics g = Graphics.FromImage(bmp);
+            g.FillRectangle(Brushes.White, new Rectangle(0, 0, bmp.Width, bmp.Height));
+            float scale = .75f;
+            float flakeWidth = width * scale;
+            float flakeHeight = 4f / 3f * flakeWidth * Constants.HW_RATIO;
+            Flake oldFlake = new Flake(bmp, new Pen(Color.Black),
+                flakeWidth,
+                margin + .5f * (width - flakeWidth),
+                margin + flakeHeight / 4f);
+            flakes.Add(oldFlake);
+            oldFlake.Draw(g);
+            Flake newFlake = null;
+            for (int i = 0; i < nFlakes; i++) {
+                newFlake = new Flake(oldFlake.Pen, oldFlake.NextSegments());
+                flakes.Add(newFlake);
+                if (!showAllIters) {
+                    bmp = getBitmapForPictureBox(pictureBox1, margin, margin);
+                    g = Graphics.FromImage(bmp);
+                    g.FillRectangle(Brushes.White, new Rectangle(0, 0, bmp.Width, bmp.Height));
+                }
+                newFlake.Image = bmp;
+                newFlake.Draw(Graphics.FromImage(bmp));
+                oldFlake = newFlake;
+            }
+            pictureBox1.Image = flakes[flakes.Count - 1].Image;
+        }
+
+        private Bitmap getBitmapForPictureBox(PictureBox pictureBox, int x0, int y0) {
+            int width = pictureBox1.Width - x0 - y0;
+            int height = (int)((Math.Round((double)pictureBox1.Width) - x0 - y0) * Constants.HW_RATIO);
+            Bitmap bmp = new Bitmap(width + x0 + y0, height + x0 + y0,
+                     System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            return bmp;
+        }
+
         private void OnQuitClick(object sender, EventArgs e) {
             Close();
         }
+
     }
 }
