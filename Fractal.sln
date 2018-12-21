@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fractal", "Fractal\Fractal.csproj", "{C801B396-C1A2-4194-851B-291E8F3BAC65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snowflake", "Snowflake\Snowflake.csproj", "{7D94DF1B-4A5A-45C7-AFB0-15422D3FA81F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C801B396-C1A2-4194-851B-291E8F3BAC65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C801B396-C1A2-4194-851B-291E8F3BAC65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C801B396-C1A2-4194-851B-291E8F3BAC65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D94DF1B-4A5A-45C7-AFB0-15422D3FA81F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D94DF1B-4A5A-45C7-AFB0-15422D3FA81F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D94DF1B-4A5A-45C7-AFB0-15422D3FA81F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D94DF1B-4A5A-45C7-AFB0-15422D3FA81F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
