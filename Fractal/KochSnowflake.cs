@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 
 namespace Fractal {
-    class KochSnowflake {
-    }
-
     public class Segment {
         protected PointF p1;
         protected PointF p2;
@@ -15,32 +12,15 @@ namespace Fractal {
             p2 = new PointF(x2, y2);
         }
 
-        public PointF P1
-        {
-            get { return p1; }
-            set { p1 = value; }
-        }
+        public PointF P1 { get { return p1; } set { p1 = value; } }
 
-        public PointF P2
-        {
-            get { return p2; }
-            set { p2 = value; }
-        }
+        public PointF P2 { get { return p2; } set { p2 = value; } }
 
-        public float Height
-        {
-            get { return p2.Y - p1.Y; }
-        }
+        public float Height { get { return p2.Y - p1.Y; } }
 
-        public float Width
-        {
-            get { return p2.X - p1.X; }
-        }
+        public float Width { get { return p2.X - p1.X; } }
 
-        public double Length
-        {
-            get { return Math.Sqrt(Height * Height + Width * Width); }
-        }
+        public double Length { get { return Math.Sqrt(Height * Height + Width * Width); } }
     }
 
     public class Flake {
@@ -88,10 +68,13 @@ namespace Fractal {
                 double length = seg.Length / 3;
                 double a = Math.Atan2(seg.Height, seg.Width);
                 a = a + rangle;
-                PointF p1 = new PointF(seg.P1.X + seg.Width / 3, seg.P1.Y + seg.Height / 3);
-                PointF p2 = new PointF(seg.P1.X + seg.Width * 2 / 3, seg.P1.Y + seg.Height * 2 / 3);
+                PointF p1 = new PointF(seg.P1.X + seg.Width / 3,
+                    seg.P1.Y + seg.Height / 3);
+                PointF p2 = new PointF(seg.P1.X + seg.Width * 2 / 3,
+                    seg.P1.Y + seg.Height * 2 / 3);
                 Segment cutSeg = new Segment(p1.X, p1.Y, p2.X, p2.Y);
-                PointF p = new PointF((int)(cutSeg.P1.X + length * Math.Cos(a)), (int)(cutSeg.P1.Y + length * Math.Sin(a)));
+                PointF p = new PointF((int)(cutSeg.P1.X + length * Math.Cos(a)),
+                    (int)(cutSeg.P1.Y + length * Math.Sin(a)));
                 newSegments.Add(new Segment(seg.P1.X, seg.P1.Y, p1.X, p1.Y));
                 newSegments.Add(new Segment(p1.X, p1.Y, p.X, p.Y));
                 newSegments.Add(new Segment(p.X, p.Y, p2.X, p2.Y));
