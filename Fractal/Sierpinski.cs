@@ -1,6 +1,6 @@
-﻿using System.Drawing;
+﻿using System;
 using System.Collections.Generic;
-using System;
+using System.Drawing;
 
 namespace Fractal {
     public class SierpinskiTriangle {
@@ -96,9 +96,14 @@ namespace Fractal {
                 float xMb = (xA + xC) / 2, yMb = (yA + yC) / 2;
                 float xMc = (xA + xB) / 2, yMc = (yA + yB) / 2;
 
-                Sierpinski(xA, yA, xMb, yMb, xMc, yMc, g, deep);
-                Sierpinski(xMc, yMc, xMa, yMa, xB, yB, g, deep);
-                Sierpinski(xMb, yMb, xMa, yMa, xC, yC, g, deep);
+                float mod = (xMa - xMb) * (xMa - xMb) + (yMa - yMb) * (yMa - yMb);
+                if (mod > 1) {
+                    Sierpinski(xA, yA, xMb, yMb, xMc, yMc, g, deep);
+                    Sierpinski(xMc, yMc, xMa, yMa, xB, yB, g, deep);
+                    Sierpinski(xMb, yMb, xMa, yMa, xC, yC, g, deep);
+                } else {
+                    throw new Exception("Reached pixel limit for creating new triangle");
+                }
             } else {
                 g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
                 PointF P1 = new PointF(xA, yA);

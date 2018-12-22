@@ -138,11 +138,17 @@ namespace Fractal {
             int height = (int)((Math.Round((double)pictureBox1.Width) - 2 * margin) * Constants.HW_RATIO);
 
             // Generate all the iterations
-            for (int i = 0; i < nSierpinsky; i++) {
+            for (int i = 0; i <= nSierpinsky; i++) {
                 Bitmap bmp = getBitmapForPictureBox(pictureBox1, margin, margin);
                 Graphics g = Graphics.FromImage(bmp);
                 g.FillRectangle(Brushes.White, new Rectangle(0, 0, bmp.Width, bmp.Height));
-                Triangle.SetupSierpinski(width, margin, margin, g, i);
+                try {
+                    Triangle.SetupSierpinski(width, margin, margin, g, i);
+                } catch (Exception ex) {
+                    Utils.Utils.warnMsg("Iteration " + i + ":\n" +
+                        ex.Message);
+                    break;
+                }
                 triangles.Add(new Triangle(bmp));
             }
             pictureBox1.Image = triangles[triangles.Count - 1].Image;
