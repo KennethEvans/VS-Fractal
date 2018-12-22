@@ -5,9 +5,13 @@ using System.Windows.Forms;
 
 namespace Fractal {
     public partial class Form1 : Form {
-        private static readonly Boolean SHOW_ALL_KOCH_ITRS_DEFAULT = false;
+        private static readonly bool SHOW_ALL_KOCH_ITRS_DEFAULT = false;
         private List<Flake> flakes;
         int nFlakes = Constants.KOCH_ITERS_DEFAULT;
+        private static readonly int KOCH_TIMER_INTERVAL = 2000;  // ms
+        private bool kochPlaying = false;
+        private Timer kochPlayTimer;
+        private int currentKochImage = 0;
 
         public Form1() {
             InitializeComponent();
@@ -16,6 +20,47 @@ namespace Fractal {
             pictureBox1.BackColor = Color.White;
             textBoxKochItrs.Text = nFlakes.ToString();
             checkBoxKochAllIters.Checked = SHOW_ALL_KOCH_ITRS_DEFAULT;
+        }
+
+        private void startKochPlayTimer() {
+            if (kochPlaying) stopKochPlayTimer();
+            if (flakes == null || flakes.Count == 0) {
+                Utils.Utils.errMsg("There are no items to play");
+                return;
+            }
+            currentKochImage = 0;
+            pictureBox1.Image = flakes[0].Image;
+            kochPlayTimer = new Timer();
+            kochPlayTimer.Interval = KOCH_TIMER_INTERVAL;
+            kochPlayTimer.Tick += new EventHandler(OnKochTimerTick);
+            kochPlayTimer.Start();
+            kochPlaying = true;
+            buttonKochPlay.Text = "Pause";
+        }
+
+        private void stopKochPlayTimer() {
+            if (kochPlayTimer == null || !kochPlayTimer.Enabled || !kochPlaying) {
+                if (flakes != null && flakes.Count > 0) {
+                    pictureBox1.Image = flakes[flakes.Count - 1].Image;
+                }
+                buttonKochPlay.Text = "Play";
+                kochPlaying = false;
+                return;
+            }
+            if (kochPlayTimer != null && kochPlayTimer.Enabled) {
+                kochPlayTimer.Stop();
+            }
+            if (flakes != null && flakes.Count > 0) {
+                pictureBox1.Image = flakes[flakes.Count - 1].Image;
+                pictureBox1.Image = flakes[flakes.Count - 1].Image;
+            }
+            buttonKochPlay.Text = "Play";
+            kochPlaying = false;
+        }
+
+        private void OnKochTimerTick(object sender, EventArgs e) {
+            if (++currentKochImage >= flakes.Count) currentKochImage = 0;
+            pictureBox1.Image = flakes[currentKochImage].Image;
         }
 
         /// <summary>
@@ -74,6 +119,7 @@ namespace Fractal {
         }
 
         private void OnSierpinskiClick(object sender, EventArgs e) {
+            stopKochPlayTimer();
             pictureBox1.Image = null;
             int deep = 6;
             int margin = 10;
@@ -88,11 +134,12 @@ namespace Fractal {
         }
 
         private void OnKochClick(object sender, EventArgs e) {
+            stopKochPlayTimer();
             int newNFlakes;
             if (Int32.TryParse(textBoxKochItrs.Text, out newNFlakes)) {
                 nFlakes = newNFlakes;
             }
-            Boolean showAllIters = checkBoxKochAllIters.Checked;
+            bool showAllIters = checkBoxKochAllIters.Checked;
             flakes = new List<Flake>();
             pictureBox1.Image = null;
             int margin = 10;
@@ -138,5 +185,12 @@ namespace Fractal {
             Close();
         }
 
+        private void OnKochPlayCkick(object sender, EventArgs e) {
+            if (kochPlaying) {
+                stopKochPlayTimer();
+            } else {
+                startKochPlayTimer();
+            }
+        }
     }
 }
