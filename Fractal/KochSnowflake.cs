@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Drawing;
 
 namespace Fractal {
-    public class Segment {
+    public class KochSegment {
         protected PointF p1;
         protected PointF p2;
 
-        public Segment(float x1, float y1, float x2, float y2) {
+        public KochSegment(float x1, float y1, float x2, float y2) {
             p1 = new PointF(x1, y1);
             p2 = new PointF(x2, y2);
         }
 
-        public List<Segment> NextSegments() {
+        public List<KochSegment> NextSegments() {
             const double rangle = -60 * Math.PI / 180.0;
-            List<Segment> newSegments = new List<Segment>();
+            List<KochSegment> newSegments = new List<KochSegment>();
             double length = Length / 3;
             double a = Math.Atan2(Height, Width);
             a = a + rangle;
@@ -22,13 +22,13 @@ namespace Fractal {
                 P1.Y + Height / 3);
             PointF p2 = new PointF(P1.X + Width * 2 / 3,
                 P1.Y + Height * 2 / 3);
-            Segment cutSeg = new Segment(p1.X, p1.Y, p2.X, p2.Y);
+            KochSegment cutSeg = new KochSegment(p1.X, p1.Y, p2.X, p2.Y);
             PointF p = new PointF((int)(cutSeg.P1.X + length * Math.Cos(a)),
                 (int)(cutSeg.P1.Y + length * Math.Sin(a)));
-            newSegments.Add(new Segment(P1.X, P1.Y, p1.X, p1.Y));
-            newSegments.Add(new Segment(p1.X, p1.Y, p.X, p.Y));
-            newSegments.Add(new Segment(p.X, p.Y, p2.X, p2.Y));
-            newSegments.Add(new Segment(p2.X, p2.Y, P2.X, P2.Y));
+            newSegments.Add(new KochSegment(P1.X, P1.Y, p1.X, p1.Y));
+            newSegments.Add(new KochSegment(p1.X, p1.Y, p.X, p.Y));
+            newSegments.Add(new KochSegment(p.X, p.Y, p2.X, p2.Y));
+            newSegments.Add(new KochSegment(p2.X, p2.Y, P2.X, P2.Y));
             return newSegments;
         }
 
@@ -47,11 +47,11 @@ namespace Fractal {
         private const double rangle = -60 * Math.PI / 180.0;
         private Pen pen;
         private Image image;
-        private List<Segment> segments;
+        private List<KochSegment> segments;
 
         public Image Image { get => image; set => image = value; }
         public Pen Pen { get => pen; set => pen = value; }
-        public List<Segment> Segments { get => segments; set => segments = value; }
+        public List<KochSegment> Segments { get => segments; set => segments = value; }
 
         /// <summary>
         /// Constructor that generates a triangle flake.
@@ -63,27 +63,27 @@ namespace Fractal {
             this.pen = pen;
             float mid = side / 2f;
             float height = Constants.HW_RATIO * side;
-            segments = new List<Segment>();
+            segments = new List<KochSegment>();
             // Go clockwise
-            segments.Add(new Segment(x0, y0, x0 + side, y0));
-            segments.Add(new Segment(x0 + side, y0, x0 + mid, y0 + height));
-            segments.Add(new Segment(x0 + mid, y0 + height, x0, y0));
+            segments.Add(new KochSegment(x0, y0, x0 + side, y0));
+            segments.Add(new KochSegment(x0 + side, y0, x0 + mid, y0 + height));
+            segments.Add(new KochSegment(x0 + mid, y0 + height, x0, y0));
         }
 
-        public Flake(Pen pen, List<Segment> segments) {
+        public Flake(Pen pen, List<KochSegment> segments) {
             this.pen = pen;
             this.segments = segments;
         }
 
         public void Draw(Graphics gr) {
-            foreach (Segment seg in segments) {
+            foreach (KochSegment seg in segments) {
                 gr.DrawLine(pen, seg.P1, seg.P2);
             }
         }
 
-        public List<Segment> NextSegments() {
-            List<Segment> newSegments = new List<Segment>();
-            foreach (Segment seg in segments) {
+        public List<KochSegment> NextSegments() {
+            List<KochSegment> newSegments = new List<KochSegment>();
+            foreach (KochSegment seg in segments) {
                 newSegments.AddRange(seg.NextSegments());
             }
             return newSegments;
