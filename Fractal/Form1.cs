@@ -28,8 +28,7 @@ namespace Fractal {
                 Utils.Utils.errMsg("There are no items to play");
                 return;
             }
-            currentKochImage = 0;
-            pictureBox1.Image = flakes[0].Image;
+            pictureBox1.Image = flakes[currentKochImage].Image;
             kochPlayTimer = new Timer();
             kochPlayTimer.Interval = KOCH_TIMER_INTERVAL;
             kochPlayTimer.Tick += new EventHandler(OnKochTimerTick);
@@ -38,22 +37,26 @@ namespace Fractal {
             buttonKochPlay.Text = "Pause";
         }
 
+        private void resetKochPlayTimer() {
+            currentKochImage = 0;
+            stopKochPlayTimer();
+        }
+
         private void stopKochPlayTimer() {
             if (kochPlayTimer == null || !kochPlayTimer.Enabled || !kochPlaying) {
-                if (flakes != null && flakes.Count > 0) {
-                    pictureBox1.Image = flakes[flakes.Count - 1].Image;
-                }
-                buttonKochPlay.Text = "Play";
+                //if (flakes != null && flakes.Count > 0) {
+                //    pictureBox1.Image = flakes[flakes.Count - 1].Image;
+                //}
+                //buttonKochPlay.Text = "Play";
                 kochPlaying = false;
                 return;
             }
             if (kochPlayTimer != null && kochPlayTimer.Enabled) {
                 kochPlayTimer.Stop();
             }
-            if (flakes != null && flakes.Count > 0) {
-                pictureBox1.Image = flakes[flakes.Count - 1].Image;
-                pictureBox1.Image = flakes[flakes.Count - 1].Image;
-            }
+            //if (flakes != null && flakes.Count > 0) {
+            //    pictureBox1.Image = flakes[flakes.Count - 1].Image;
+            //}
             buttonKochPlay.Text = "Play";
             kochPlaying = false;
         }
@@ -134,7 +137,7 @@ namespace Fractal {
         }
 
         private void OnKochClick(object sender, EventArgs e) {
-            stopKochPlayTimer();
+            resetKochPlayTimer();
             int newNFlakes;
             if (Int32.TryParse(textBoxKochItrs.Text, out newNFlakes)) {
                 nFlakes = newNFlakes;

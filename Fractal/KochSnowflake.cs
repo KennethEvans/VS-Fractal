@@ -12,6 +12,26 @@ namespace Fractal {
             p2 = new PointF(x2, y2);
         }
 
+        public List<Segment> NextSegments() {
+            const double rangle = -60 * Math.PI / 180.0;
+            List<Segment> newSegments = new List<Segment>();
+            double length = Length / 3;
+            double a = Math.Atan2(Height, Width);
+            a = a + rangle;
+            PointF p1 = new PointF(P1.X + Width / 3,
+                P1.Y + Height / 3);
+            PointF p2 = new PointF(P1.X + Width * 2 / 3,
+                P1.Y + Height * 2 / 3);
+            Segment cutSeg = new Segment(p1.X, p1.Y, p2.X, p2.Y);
+            PointF p = new PointF((int)(cutSeg.P1.X + length * Math.Cos(a)),
+                (int)(cutSeg.P1.Y + length * Math.Sin(a)));
+            newSegments.Add(new Segment(P1.X, P1.Y, p1.X, p1.Y));
+            newSegments.Add(new Segment(p1.X, p1.Y, p.X, p.Y));
+            newSegments.Add(new Segment(p.X, p.Y, p2.X, p2.Y));
+            newSegments.Add(new Segment(p2.X, p2.Y, P2.X, P2.Y));
+            return newSegments;
+        }
+
         public PointF P1 { get { return p1; } set { p1 = value; } }
 
         public PointF P2 { get { return p2; } set { p2 = value; } }
@@ -63,22 +83,8 @@ namespace Fractal {
 
         public List<Segment> NextSegments() {
             List<Segment> newSegments = new List<Segment>();
-
             foreach (Segment seg in segments) {
-                double length = seg.Length / 3;
-                double a = Math.Atan2(seg.Height, seg.Width);
-                a = a + rangle;
-                PointF p1 = new PointF(seg.P1.X + seg.Width / 3,
-                    seg.P1.Y + seg.Height / 3);
-                PointF p2 = new PointF(seg.P1.X + seg.Width * 2 / 3,
-                    seg.P1.Y + seg.Height * 2 / 3);
-                Segment cutSeg = new Segment(p1.X, p1.Y, p2.X, p2.Y);
-                PointF p = new PointF((int)(cutSeg.P1.X + length * Math.Cos(a)),
-                    (int)(cutSeg.P1.Y + length * Math.Sin(a)));
-                newSegments.Add(new Segment(seg.P1.X, seg.P1.Y, p1.X, p1.Y));
-                newSegments.Add(new Segment(p1.X, p1.Y, p.X, p.Y));
-                newSegments.Add(new Segment(p.X, p.Y, p2.X, p2.Y));
-                newSegments.Add(new Segment(p2.X, p2.Y, seg.P2.X, seg.P2.Y));
+                newSegments.AddRange(seg.NextSegments());
             }
             return newSegments;
         }
