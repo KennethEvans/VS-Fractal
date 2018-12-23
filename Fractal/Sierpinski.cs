@@ -21,24 +21,6 @@ namespace Fractal {
             float xMa = (p2.X + p3.X) / 2, yMa = (p2.Y + p3.Y) / 2;
             float xMb = (p1.X + p3.X) / 2, yMb = (p1.Y + p3.Y) / 2;
             float xMc = (p1.X + p2.X) / 2, yMc = (P1.Y + P2.Y) / 2;
-
-
-
-            //double length = Length / 3;
-            //double a = Math.Atan2(Height, Width);
-            //a = a + rangle;
-            //PointF p1 = new PointF(P1.X + Width / 3,
-            //    P1.Y + Height / 3);
-            //PointF p2 = new PointF(P1.X + Width * 2 / 3,
-            //    P1.Y + Height * 2 / 3);
-            //KochSegment cutSeg = new KochSegment(p1.X, p1.Y, p2.X, p2.Y);
-            //PointF p = new PointF((int)(cutSeg.P1.X + length * Math.Cos(a)),
-            //    (int)(cutSeg.P1.Y + length * Math.Sin(a)));
-            //newSegments.Add(new KochSegment(P1.X, P1.Y, p1.X, p1.Y));
-            //newSegments.Add(new KochSegment(p1.X, p1.Y, p.X, p.Y));
-            //newSegments.Add(new KochSegment(p.X, p.Y, p2.X, p2.Y));
-            //newSegments.Add(new KochSegment(p2.X, p2.Y, P2.X, P2.Y));
-            //return newSegments;
             return newTriangles;
         }
 
@@ -70,7 +52,7 @@ namespace Fractal {
             int xA = x, yA = y;
             // Bottom-right
             int xB = (int)(x + width), yB = y;
-            // TRop-center (of equilateral triangle)
+            // Top-center (of equilateral triangle)
             int xC = (int)(x + width / 2.0f), yC = (int)(y + height);
 
             Sierpinski(xA, yA, xB, yB, xC, yC, g, deep);

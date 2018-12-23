@@ -1,5 +1,5 @@
 ﻿namespace Fractal {
-    partial class Form1 {
+    partial class MainForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -24,10 +24,10 @@
         /// </summary>
         private void InitializeComponent() {
             this.tableLayoutPanelTop = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanelSierp = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonSierp = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanelSierpItrs = new System.Windows.Forms.TableLayoutPanel();
             this.labelSierItrs = new System.Windows.Forms.Label();
             this.textBoxSierpItrs = new System.Windows.Forms.TextBox();
             this.buttonSierpPlay = new System.Windows.Forms.Button();
@@ -41,9 +41,9 @@
             this.flowLayoutPanelButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonQuit = new System.Windows.Forms.Button();
             this.tableLayoutPanelTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.flowLayoutPanelSierp.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanelSierpItrs.SuspendLayout();
             this.flowLayoutPanelKoch.SuspendLayout();
             this.tableLayoutPanelKochItrs.SuspendLayout();
             this.flowLayoutPanelButtons.SuspendLayout();
@@ -54,7 +54,7 @@
             this.tableLayoutPanelTop.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanelTop.ColumnCount = 1;
             this.tableLayoutPanelTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelTop.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanelTop.Controls.Add(this.pictureBox, 0, 0);
             this.tableLayoutPanelTop.Controls.Add(this.flowLayoutPanelSierp, 0, 1);
             this.tableLayoutPanelTop.Controls.Add(this.flowLayoutPanelKoch, 0, 2);
             this.tableLayoutPanelTop.Controls.Add(this.flowLayoutPanelButtons, 0, 3);
@@ -70,14 +70,14 @@
             this.tableLayoutPanelTop.Size = new System.Drawing.Size(1112, 1077);
             this.tableLayoutPanelTop.TabIndex = 0;
             // 
-            // pictureBox1
+            // pictureBox
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1106, 901);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(1106, 901);
+            this.pictureBox.TabIndex = 0;
+            this.pictureBox.TabStop = false;
             // 
             // flowLayoutPanelSierp
             // 
@@ -86,7 +86,7 @@
             this.flowLayoutPanelSierp.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanelSierp.BackColor = System.Drawing.SystemColors.Control;
             this.flowLayoutPanelSierp.Controls.Add(this.buttonSierp);
-            this.flowLayoutPanelSierp.Controls.Add(this.tableLayoutPanel1);
+            this.flowLayoutPanelSierp.Controls.Add(this.tableLayoutPanelSierpItrs);
             this.flowLayoutPanelSierp.Controls.Add(this.buttonSierpPlay);
             this.flowLayoutPanelSierp.Location = new System.Drawing.Point(305, 909);
             this.flowLayoutPanelSierp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -109,25 +109,25 @@
             this.buttonSierp.UseVisualStyleBackColor = true;
             this.buttonSierp.Click += new System.EventHandler(this.OnSierpinskiClick);
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanelSierpItrs
             // 
-            this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.labelSierItrs, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxSierpItrs, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(193, 2);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(205, 42);
-            this.tableLayoutPanel1.TabIndex = 3;
+            this.tableLayoutPanelSierpItrs.AutoSize = true;
+            this.tableLayoutPanelSierpItrs.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanelSierpItrs.BackColor = System.Drawing.SystemColors.Control;
+            this.tableLayoutPanelSierpItrs.ColumnCount = 3;
+            this.tableLayoutPanelSierpItrs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelSierpItrs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelSierpItrs.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelSierpItrs.Controls.Add(this.labelSierItrs, 0, 0);
+            this.tableLayoutPanelSierpItrs.Controls.Add(this.textBoxSierpItrs, 1, 0);
+            this.tableLayoutPanelSierpItrs.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanelSierpItrs.Location = new System.Drawing.Point(193, 2);
+            this.tableLayoutPanelSierpItrs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanelSierpItrs.Name = "tableLayoutPanelSierpItrs";
+            this.tableLayoutPanelSierpItrs.RowCount = 1;
+            this.tableLayoutPanelSierpItrs.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelSierpItrs.Size = new System.Drawing.Size(205, 42);
+            this.tableLayoutPanelSierpItrs.TabIndex = 3;
             // 
             // labelSierItrs
             // 
@@ -297,21 +297,21 @@
             this.buttonQuit.UseVisualStyleBackColor = true;
             this.buttonQuit.Click += new System.EventHandler(this.OnQuitClick);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 1077);
             this.Controls.Add(this.tableLayoutPanelTop);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Fractals";
             this.tableLayoutPanelTop.ResumeLayout(false);
             this.tableLayoutPanelTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.flowLayoutPanelSierp.ResumeLayout(false);
             this.flowLayoutPanelSierp.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanelSierpItrs.ResumeLayout(false);
+            this.tableLayoutPanelSierpItrs.PerformLayout();
             this.flowLayoutPanelKoch.ResumeLayout(false);
             this.flowLayoutPanelKoch.PerformLayout();
             this.tableLayoutPanelKochItrs.ResumeLayout(false);
@@ -325,7 +325,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelTop;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelButtons;
         private System.Windows.Forms.Button buttonQuit;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelSierp;
@@ -337,7 +337,7 @@
         private System.Windows.Forms.TextBox textBoxKochItrs;
         private System.Windows.Forms.CheckBox checkBoxKochAllIters;
         private System.Windows.Forms.Button buttonKochPlay;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelSierpItrs;
         private System.Windows.Forms.Label labelSierItrs;
         private System.Windows.Forms.TextBox textBoxSierpItrs;
         private System.Windows.Forms.Button buttonSierpPlay;

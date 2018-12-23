@@ -33,13 +33,9 @@ namespace Fractal {
         }
 
         public PointF P1 { get { return p1; } set { p1 = value; } }
-
         public PointF P2 { get { return p2; } set { p2 = value; } }
-
         public float Height { get { return p2.Y - p1.Y; } }
-
         public float Width { get { return p2.X - p1.X; } }
-
         public double Length { get { return Math.Sqrt(Height * Height + Width * Width); } }
     }
 

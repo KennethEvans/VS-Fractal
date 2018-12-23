@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace Fractal {
-    public partial class Form1 : Form {
+    public partial class MainForm : Form {
         int nSierpinsky = Constants.SIERPINSKI_ITERS_DEFAULT;
         private List<Triangle> triangles;
 
@@ -12,11 +12,11 @@ namespace Fractal {
         int nFlakes = Constants.KOCH_ITERS_DEFAULT;
         private List<Flake> flakes;
 
-        public Form1() {
+        public MainForm() {
             InitializeComponent();
 
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.BackColor = Color.White;
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox.BackColor = Color.White;
 
             textBoxSierpItrs.Text = nSierpinsky.ToString();
 
@@ -25,6 +25,7 @@ namespace Fractal {
         }
 
         private void OnSierpinskiClick(object sender, EventArgs e) {
+            Cursor.Current = Cursors.WaitCursor;
             if (Triangle.Timer != null) {
                 Triangle.Timer.resetTimer();
             }
@@ -36,17 +37,17 @@ namespace Fractal {
                 nSierpinsky = newNTriangles;
             }
             triangles = new List<Triangle>();
-            Triangle.Timer = new FractalTimer<Triangle>(triangles, pictureBox1, buttonSierpPlay);
+            Triangle.Timer = new FractalTimer<Triangle>(triangles, pictureBox, buttonSierpPlay);
             bool showAllIters = checkBoxKochAllIters.Checked;
-            pictureBox1.Image = null;
+            pictureBox.Image = null;
             int deep = nSierpinsky;
             int margin = 10;
-            int width = pictureBox1.Width - 2 * margin;
-            int height = (int)((Math.Round((double)pictureBox1.Width) - 2 * margin) * Constants.HW_RATIO);
+            int width = pictureBox.Width - 2 * margin;
+            int height = (int)((Math.Round((double)pictureBox.Width) - 2 * margin) * Constants.HW_RATIO);
 
             // Generate all the iterations
             for (int i = 0; i <= nSierpinsky; i++) {
-                Bitmap bmp = getBitmapForPictureBox(pictureBox1, margin, margin);
+                Bitmap bmp = getBitmapForPictureBox(pictureBox, margin, margin);
                 Graphics g = Graphics.FromImage(bmp);
                 g.FillRectangle(Brushes.White, new Rectangle(0, 0, bmp.Width, bmp.Height));
                 try {
@@ -58,10 +59,12 @@ namespace Fractal {
                 }
                 triangles.Add(new Triangle(bmp));
             }
-            pictureBox1.Image = triangles[triangles.Count - 1].Image;
+            pictureBox.Image = triangles[triangles.Count - 1].Image;
+            Cursor.Current = Cursors.Default;
         }
 
         private void OnKochClick(object sender, EventArgs e) {
+            Cursor.Current = Cursors.WaitCursor;
             if (Triangle.Timer != null) {
                 Triangle.Timer.resetTimer();
             }
@@ -72,13 +75,14 @@ namespace Fractal {
             if (Int32.TryParse(textBoxKochItrs.Text, out newNFlakes)) {
                 nFlakes = newNFlakes;
             }
+            // Start Calculation
             bool showAllIters = checkBoxKochAllIters.Checked;
             flakes = new List<Flake>();
-            Flake.Timer = new FractalTimer<Flake>(flakes, pictureBox1, buttonKochPlay);
+            Flake.Timer = new FractalTimer<Flake>(flakes, pictureBox, buttonKochPlay);
             int margin = 10;
-            int width = pictureBox1.Width - 2 * margin;
-            int height = (int)((Math.Round((double)pictureBox1.Width) - margin - margin) * Constants.HW_RATIO);
-            Bitmap bmp = getBitmapForPictureBox(pictureBox1, margin, margin);
+            int width = pictureBox.Width - 2 * margin;
+            int height = (int)((Math.Round((double)pictureBox.Width) - margin - margin) * Constants.HW_RATIO);
+            Bitmap bmp = getBitmapForPictureBox(pictureBox, margin, margin);
             Graphics g = Graphics.FromImage(bmp);
             g.FillRectangle(Brushes.White, new Rectangle(0, 0, bmp.Width, bmp.Height));
             float scale = .75f;
@@ -95,7 +99,7 @@ namespace Fractal {
                 newFlake = new Flake(oldFlake.Pen, oldFlake.NextSegments());
                 flakes.Add(newFlake);
                 if (!showAllIters) {
-                    bmp = getBitmapForPictureBox(pictureBox1, margin, margin);
+                    bmp = getBitmapForPictureBox(pictureBox, margin, margin);
                     g = Graphics.FromImage(bmp);
                     g.FillRectangle(Brushes.White, new Rectangle(0, 0, bmp.Width, bmp.Height));
                 }
@@ -103,12 +107,13 @@ namespace Fractal {
                 newFlake.Draw(Graphics.FromImage(bmp));
                 oldFlake = newFlake;
             }
-            pictureBox1.Image = flakes[flakes.Count - 1].Image;
+            pictureBox.Image = flakes[flakes.Count - 1].Image;
+            Cursor.Current = Cursors.Default;
         }
 
         private Bitmap getBitmapForPictureBox(PictureBox pictureBox, int x0, int y0) {
-            int width = pictureBox1.Width - x0 - y0;
-            int height = (int)((Math.Round((double)pictureBox1.Width) - x0 - y0) * Constants.HW_RATIO);
+            int width = this.pictureBox.Width - x0 - y0;
+            int height = (int)((Math.Round((double)this.pictureBox.Width) - x0 - y0) * Constants.HW_RATIO);
             Bitmap bmp = new Bitmap(width + x0 + y0, height + x0 + y0,
                      System.Drawing.Imaging.PixelFormat.Format24bppRgb);
             return bmp;
