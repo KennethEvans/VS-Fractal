@@ -5,20 +5,12 @@ using System.Windows.Forms;
 
 namespace Fractal {
     public partial class Form1 : Form {
-        private static readonly int TIMER_INTERVAL = 2000;  // ms
-
         int nSierpinsky = Constants.SIERPINSKI_ITERS_DEFAULT;
         private List<Triangle> triangles;
-        private bool sierpPlaying = false;
-        private Timer sierpPlayTimer;
-        private int currentSierpImage = 0;
 
         private static readonly bool SHOW_ALL_KOCH_ITRS_DEFAULT = false;
         int nFlakes = Constants.KOCH_ITERS_DEFAULT;
         private List<Flake> flakes;
-        private bool kochPlaying = false;
-        private Timer kochPlayTimer;
-        private int currentKochImage = 0;
 
         public Form1() {
             InitializeComponent();
@@ -32,104 +24,19 @@ namespace Fractal {
             checkBoxKochAllIters.Checked = SHOW_ALL_KOCH_ITRS_DEFAULT;
         }
 
-        private void startSierpPlayTimer() {
-            if (sierpPlaying) stopSierpPlayTimer();
-            if (kochPlaying) stopKochPlayTimer();
-            if (triangles == null || triangles.Count == 0) {
-                Utils.Utils.errMsg("There are no items to play");
-                return;
-            }
-            pictureBox1.Image = triangles[currentSierpImage].Image;
-            sierpPlayTimer = new Timer();
-            sierpPlayTimer.Interval = TIMER_INTERVAL;
-            sierpPlayTimer.Tick += new EventHandler(OnSierpTimerTick);
-            sierpPlayTimer.Start();
-            sierpPlaying = true;
-            buttonSierpPlay.Text = "Pause";
-        }
-
-        private void resetSierpPlayTimer() {
-            currentSierpImage = 0;
-            stopSierpPlayTimer();
-        }
-
-        private void stopSierpPlayTimer() {
-            if (sierpPlayTimer == null || !sierpPlayTimer.Enabled || !sierpPlaying) {
-                //if (flakes != null && flakes.Count > 0) {
-                //    pictureBox1.Image = flakes[flakes.Count - 1].Image;
-                //}
-                //buttonKochPlay.Text = "Play";
-                sierpPlaying = false;
-                return;
-            }
-            if (sierpPlayTimer != null && sierpPlayTimer.Enabled) {
-                sierpPlayTimer.Stop();
-            }
-            //if (flakes != null && flakes.Count > 0) {
-            //    pictureBox1.Image = flakes[flakes.Count - 1].Image;
-            //}
-            buttonSierpPlay.Text = "Play";
-            sierpPlaying = false;
-        }
-
-        private void OnSierpTimerTick(object sender, EventArgs e) {
-            if (++currentSierpImage >= triangles.Count) currentSierpImage = 0;
-            pictureBox1.Image = triangles[currentSierpImage].Image;
-        }
-
-        private void startKochPlayTimer() {
-            if (sierpPlaying) stopSierpPlayTimer();
-            if (kochPlaying) stopKochPlayTimer();
-            if (flakes == null || flakes.Count == 0) {
-                Utils.Utils.errMsg("There are no items to play");
-                return;
-            }
-            pictureBox1.Image = flakes[currentKochImage].Image;
-            kochPlayTimer = new Timer();
-            kochPlayTimer.Interval = TIMER_INTERVAL;
-            kochPlayTimer.Tick += new EventHandler(OnKochTimerTick);
-            kochPlayTimer.Start();
-            kochPlaying = true;
-            buttonKochPlay.Text = "Pause";
-        }
-
-        private void resetKochPlayTimer() {
-            currentKochImage = 0;
-            stopKochPlayTimer();
-        }
-
-        private void stopKochPlayTimer() {
-            if (kochPlayTimer == null || !kochPlayTimer.Enabled || !kochPlaying) {
-                //if (flakes != null && flakes.Count > 0) {
-                //    pictureBox1.Image = flakes[flakes.Count - 1].Image;
-                //}
-                //buttonKochPlay.Text = "Play";
-                kochPlaying = false;
-                return;
-            }
-            if (kochPlayTimer != null && kochPlayTimer.Enabled) {
-                kochPlayTimer.Stop();
-            }
-            //if (flakes != null && flakes.Count > 0) {
-            //    pictureBox1.Image = flakes[flakes.Count - 1].Image;
-            //}
-            buttonKochPlay.Text = "Play";
-            kochPlaying = false;
-        }
-
-        private void OnKochTimerTick(object sender, EventArgs e) {
-            if (++currentKochImage >= flakes.Count) currentKochImage = 0;
-            pictureBox1.Image = flakes[currentKochImage].Image;
-        }
-
         private void OnSierpinskiClick(object sender, EventArgs e) {
-            resetSierpPlayTimer();
-            resetKochPlayTimer();
+            if (Triangle.Timer != null) {
+                Triangle.Timer.resetTimer();
+            }
+            if (Flake.Timer != null) {
+                Flake.Timer.resetTimer();
+            }
             int newNTriangles;
             if (Int32.TryParse(textBoxSierpItrs.Text, out newNTriangles)) {
                 nSierpinsky = newNTriangles;
             }
             triangles = new List<Triangle>();
+            Triangle.Timer = new FractalTimer<Triangle>(triangles, pictureBox1, buttonSierpPlay);
             bool showAllIters = checkBoxKochAllIters.Checked;
             pictureBox1.Image = null;
             int deep = nSierpinsky;
@@ -155,15 +62,19 @@ namespace Fractal {
         }
 
         private void OnKochClick(object sender, EventArgs e) {
-            resetSierpPlayTimer();
-            resetKochPlayTimer();
+            if (Triangle.Timer != null) {
+                Triangle.Timer.resetTimer();
+            }
+            if (Flake.Timer != null) {
+                Flake.Timer.resetTimer();
+            }
             int newNFlakes;
             if (Int32.TryParse(textBoxKochItrs.Text, out newNFlakes)) {
                 nFlakes = newNFlakes;
             }
             bool showAllIters = checkBoxKochAllIters.Checked;
             flakes = new List<Flake>();
-            pictureBox1.Image = null;
+            Flake.Timer = new FractalTimer<Flake>(flakes, pictureBox1, buttonKochPlay);
             int margin = 10;
             int width = pictureBox1.Width - 2 * margin;
             int height = (int)((Math.Round((double)pictureBox1.Width) - margin - margin) * Constants.HW_RATIO);
@@ -208,18 +119,24 @@ namespace Fractal {
         }
 
         private void OnSierpPlayCkick(object sender, EventArgs e) {
-            if (sierpPlaying) {
-                stopSierpPlayTimer();
+            if (Flake.Timer.Playing) {
+                Flake.Timer.stopTimer();
+            }
+            if (Triangle.Timer.Playing) {
+                Triangle.Timer.stopTimer();
             } else {
-                startSierpPlayTimer();
+                Triangle.Timer.startTimer();
             }
         }
 
         private void OnKochPlayCkick(object sender, EventArgs e) {
-            if (kochPlaying) {
-                stopKochPlayTimer();
+            if (Triangle.Timer.Playing) {
+                Triangle.Timer.stopTimer();
+            }
+            if (Flake.Timer.Playing) {
+                Flake.Timer.stopTimer();
             } else {
-                startKochPlayTimer();
+                Flake.Timer.startTimer();
             }
         }
     }

@@ -47,7 +47,8 @@ namespace Fractal {
         protected PointF P3 { get => p3; set => p3 = value; }
     }
 
-    public class Triangle {
+    public class Triangle : IImage {
+        private static FractalTimer<Triangle> timer = new FractalTimer<Triangle>();
         private Image image;
 
         public Triangle(Image image) {
@@ -115,5 +116,6 @@ namespace Fractal {
         }
 
         public Image Image { get => image; set => image = value; }
+        internal static FractalTimer<Triangle> Timer { get => timer; set => timer = value; }
     }
 }

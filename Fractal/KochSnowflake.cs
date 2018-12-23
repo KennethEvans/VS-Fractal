@@ -43,7 +43,8 @@ namespace Fractal {
         public double Length { get { return Math.Sqrt(Height * Height + Width * Width); } }
     }
 
-    public class Flake {
+    public class Flake : IImage {
+        private static FractalTimer<Flake> timer = new FractalTimer<Flake>();
         private const double rangle = -60 * Math.PI / 180.0;
         private Pen pen;
         private Image image;
@@ -52,6 +53,7 @@ namespace Fractal {
         public Image Image { get => image; set => image = value; }
         public Pen Pen { get => pen; set => pen = value; }
         public List<KochSegment> Segments { get => segments; set => segments = value; }
+        internal static FractalTimer<Flake> Timer { get => timer; set => timer = value; }
 
         /// <summary>
         /// Constructor that generates a triangle flake.
