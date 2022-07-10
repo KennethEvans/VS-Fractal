@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tableLayoutPanelTop = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanelSierp = new System.Windows.Forms.FlowLayoutPanel();
@@ -88,10 +89,10 @@
             this.flowLayoutPanelSierp.Controls.Add(this.buttonSierp);
             this.flowLayoutPanelSierp.Controls.Add(this.tableLayoutPanelSierpItrs);
             this.flowLayoutPanelSierp.Controls.Add(this.buttonSierpPlay);
-            this.flowLayoutPanelSierp.Location = new System.Drawing.Point(305, 909);
+            this.flowLayoutPanelSierp.Location = new System.Drawing.Point(306, 909);
             this.flowLayoutPanelSierp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanelSierp.Name = "flowLayoutPanelSierp";
-            this.flowLayoutPanelSierp.Size = new System.Drawing.Size(502, 46);
+            this.flowLayoutPanelSierp.Size = new System.Drawing.Size(499, 46);
             this.flowLayoutPanelSierp.TabIndex = 3;
             this.flowLayoutPanelSierp.WrapContents = false;
             // 
@@ -103,7 +104,7 @@
             this.buttonSierp.Location = new System.Drawing.Point(20, 2);
             this.buttonSierp.Margin = new System.Windows.Forms.Padding(20, 2, 20, 2);
             this.buttonSierp.Name = "buttonSierp";
-            this.buttonSierp.Size = new System.Drawing.Size(150, 42);
+            this.buttonSierp.Size = new System.Drawing.Size(149, 42);
             this.buttonSierp.TabIndex = 0;
             this.buttonSierp.Text = "Sierpinski";
             this.buttonSierp.UseVisualStyleBackColor = true;
@@ -121,12 +122,12 @@
             this.tableLayoutPanelSierpItrs.Controls.Add(this.labelSierItrs, 0, 0);
             this.tableLayoutPanelSierpItrs.Controls.Add(this.textBoxSierpItrs, 1, 0);
             this.tableLayoutPanelSierpItrs.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanelSierpItrs.Location = new System.Drawing.Point(193, 2);
+            this.tableLayoutPanelSierpItrs.Location = new System.Drawing.Point(192, 2);
             this.tableLayoutPanelSierpItrs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanelSierpItrs.Name = "tableLayoutPanelSierpItrs";
             this.tableLayoutPanelSierpItrs.RowCount = 1;
             this.tableLayoutPanelSierpItrs.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelSierpItrs.Size = new System.Drawing.Size(205, 42);
+            this.tableLayoutPanelSierpItrs.Size = new System.Drawing.Size(204, 42);
             this.tableLayoutPanelSierpItrs.TabIndex = 3;
             // 
             // labelSierItrs
@@ -138,7 +139,7 @@
             this.labelSierItrs.Location = new System.Drawing.Point(20, 2);
             this.labelSierItrs.Margin = new System.Windows.Forms.Padding(20, 2, 2, 2);
             this.labelSierItrs.Name = "labelSierItrs";
-            this.labelSierItrs.Size = new System.Drawing.Size(61, 38);
+            this.labelSierItrs.Size = new System.Drawing.Size(60, 38);
             this.labelSierItrs.TabIndex = 0;
             this.labelSierItrs.Text = "Itrs:";
             this.labelSierItrs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -146,7 +147,7 @@
             // textBoxSierpItrs
             // 
             this.textBoxSierpItrs.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBoxSierpItrs.Location = new System.Drawing.Point(85, 2);
+            this.textBoxSierpItrs.Location = new System.Drawing.Point(84, 2);
             this.textBoxSierpItrs.Margin = new System.Windows.Forms.Padding(2, 2, 20, 2);
             this.textBoxSierpItrs.Name = "textBoxSierpItrs";
             this.textBoxSierpItrs.Size = new System.Drawing.Size(100, 38);
@@ -158,10 +159,10 @@
             this.buttonSierpPlay.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonSierpPlay.AutoSize = true;
             this.buttonSierpPlay.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonSierpPlay.Location = new System.Drawing.Point(411, 2);
+            this.buttonSierpPlay.Location = new System.Drawing.Point(409, 2);
             this.buttonSierpPlay.Margin = new System.Windows.Forms.Padding(10, 2, 10, 2);
             this.buttonSierpPlay.Name = "buttonSierpPlay";
-            this.buttonSierpPlay.Size = new System.Drawing.Size(81, 42);
+            this.buttonSierpPlay.Size = new System.Drawing.Size(80, 42);
             this.buttonSierpPlay.TabIndex = 4;
             this.buttonSierpPlay.Text = "Play";
             this.buttonSierpPlay.UseVisualStyleBackColor = true;
@@ -176,10 +177,10 @@
             this.flowLayoutPanelKoch.Controls.Add(this.buttonKoch);
             this.flowLayoutPanelKoch.Controls.Add(this.tableLayoutPanelKochItrs);
             this.flowLayoutPanelKoch.Controls.Add(this.buttonKochPlay);
-            this.flowLayoutPanelKoch.Location = new System.Drawing.Point(210, 959);
+            this.flowLayoutPanelKoch.Location = new System.Drawing.Point(212, 959);
             this.flowLayoutPanelKoch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanelKoch.Name = "flowLayoutPanelKoch";
-            this.flowLayoutPanelKoch.Size = new System.Drawing.Size(691, 46);
+            this.flowLayoutPanelKoch.Size = new System.Drawing.Size(687, 46);
             this.flowLayoutPanelKoch.TabIndex = 4;
             this.flowLayoutPanelKoch.WrapContents = false;
             // 
@@ -191,7 +192,7 @@
             this.buttonKoch.Location = new System.Drawing.Point(20, 2);
             this.buttonKoch.Margin = new System.Windows.Forms.Padding(20, 2, 20, 2);
             this.buttonKoch.Name = "buttonKoch";
-            this.buttonKoch.Size = new System.Drawing.Size(90, 42);
+            this.buttonKoch.Size = new System.Drawing.Size(89, 42);
             this.buttonKoch.TabIndex = 0;
             this.buttonKoch.Text = "Koch";
             this.buttonKoch.UseVisualStyleBackColor = true;
@@ -210,12 +211,12 @@
             this.tableLayoutPanelKochItrs.Controls.Add(this.textBoxKochItrs, 1, 0);
             this.tableLayoutPanelKochItrs.Controls.Add(this.checkBoxKochAllIters, 2, 0);
             this.tableLayoutPanelKochItrs.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanelKochItrs.Location = new System.Drawing.Point(133, 2);
+            this.tableLayoutPanelKochItrs.Location = new System.Drawing.Point(132, 2);
             this.tableLayoutPanelKochItrs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanelKochItrs.Name = "tableLayoutPanelKochItrs";
             this.tableLayoutPanelKochItrs.RowCount = 1;
             this.tableLayoutPanelKochItrs.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelKochItrs.Size = new System.Drawing.Size(454, 42);
+            this.tableLayoutPanelKochItrs.Size = new System.Drawing.Size(452, 42);
             this.tableLayoutPanelKochItrs.TabIndex = 2;
             // 
             // labelKochItrs
@@ -227,7 +228,7 @@
             this.labelKochItrs.Location = new System.Drawing.Point(20, 2);
             this.labelKochItrs.Margin = new System.Windows.Forms.Padding(20, 2, 2, 2);
             this.labelKochItrs.Name = "labelKochItrs";
-            this.labelKochItrs.Size = new System.Drawing.Size(61, 38);
+            this.labelKochItrs.Size = new System.Drawing.Size(60, 38);
             this.labelKochItrs.TabIndex = 0;
             this.labelKochItrs.Text = "Itrs:";
             this.labelKochItrs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -235,7 +236,7 @@
             // textBoxKochItrs
             // 
             this.textBoxKochItrs.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBoxKochItrs.Location = new System.Drawing.Point(85, 2);
+            this.textBoxKochItrs.Location = new System.Drawing.Point(84, 2);
             this.textBoxKochItrs.Margin = new System.Windows.Forms.Padding(2, 2, 20, 2);
             this.textBoxKochItrs.Name = "textBoxKochItrs";
             this.textBoxKochItrs.Size = new System.Drawing.Size(100, 38);
@@ -247,10 +248,10 @@
             this.checkBoxKochAllIters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxKochAllIters.AutoSize = true;
-            this.checkBoxKochAllIters.Location = new System.Drawing.Point(225, 2);
+            this.checkBoxKochAllIters.Location = new System.Drawing.Point(224, 2);
             this.checkBoxKochAllIters.Margin = new System.Windows.Forms.Padding(20, 2, 20, 2);
             this.checkBoxKochAllIters.Name = "checkBoxKochAllIters";
-            this.checkBoxKochAllIters.Size = new System.Drawing.Size(209, 38);
+            this.checkBoxKochAllIters.Size = new System.Drawing.Size(208, 38);
             this.checkBoxKochAllIters.TabIndex = 5;
             this.checkBoxKochAllIters.Text = "Show All Itrs";
             this.checkBoxKochAllIters.UseVisualStyleBackColor = true;
@@ -260,10 +261,10 @@
             this.buttonKochPlay.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonKochPlay.AutoSize = true;
             this.buttonKochPlay.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonKochPlay.Location = new System.Drawing.Point(600, 2);
+            this.buttonKochPlay.Location = new System.Drawing.Point(597, 2);
             this.buttonKochPlay.Margin = new System.Windows.Forms.Padding(10, 2, 10, 2);
             this.buttonKochPlay.Name = "buttonKochPlay";
-            this.buttonKochPlay.Size = new System.Drawing.Size(81, 42);
+            this.buttonKochPlay.Size = new System.Drawing.Size(80, 42);
             this.buttonKochPlay.TabIndex = 3;
             this.buttonKochPlay.Text = "Play";
             this.buttonKochPlay.UseVisualStyleBackColor = true;
@@ -279,7 +280,7 @@
             this.flowLayoutPanelButtons.Location = new System.Drawing.Point(497, 1009);
             this.flowLayoutPanelButtons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanelButtons.Name = "flowLayoutPanelButtons";
-            this.flowLayoutPanelButtons.Size = new System.Drawing.Size(118, 46);
+            this.flowLayoutPanelButtons.Size = new System.Drawing.Size(117, 46);
             this.flowLayoutPanelButtons.TabIndex = 2;
             this.flowLayoutPanelButtons.WrapContents = false;
             // 
@@ -291,7 +292,7 @@
             this.buttonQuit.Location = new System.Drawing.Point(20, 2);
             this.buttonQuit.Margin = new System.Windows.Forms.Padding(20, 2, 20, 2);
             this.buttonQuit.Name = "buttonQuit";
-            this.buttonQuit.Size = new System.Drawing.Size(78, 42);
+            this.buttonQuit.Size = new System.Drawing.Size(77, 42);
             this.buttonQuit.TabIndex = 3;
             this.buttonQuit.Text = "Quit";
             this.buttonQuit.UseVisualStyleBackColor = true;
@@ -303,6 +304,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 1077);
             this.Controls.Add(this.tableLayoutPanelTop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Fractals";
             this.tableLayoutPanelTop.ResumeLayout(false);
